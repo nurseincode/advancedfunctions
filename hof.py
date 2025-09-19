@@ -1,30 +1,32 @@
 # Higher-order functions
 # Wrapper - Wraps a function for additional functionality
 
-numbers = [5, 7, 2, 3]
+# numbers = [5, 7, 2, 3]
 
-# def squares(nums):
-# Builds a new list with the result of
-# calling cb on each item in the list
-# def with_list(nums, cb):
-#     result = []
-#     for n in nums:   # Apply the callback function to the current number (n)
-#         # result.append(n ** 2)
-#         result.append(cb(n)) # Add the result to the new list
-#     return result
+# # def squares(nums):
+# # Builds a new list with the result of
+# # calling cb on each item in the list
+# # def with_list(nums, cb):
+# #     result = []
+# #     for n in nums:   # Apply the callback function to the current number (n)
+# #         # result.append(n ** 2)
+# #         result.append(cb(n)) # Add the result to the new list
+# #     return result
 
-def square(n):
-    return n * n
+# def square(n):
+#     return n * n
 
-def cube(n):
-    return n ** 3
+# def cube(n):
+#     return n ** 3
 
-# Main 
-# print(with_list(numbers, cube)) # One generic cb function 'with_list' reused with square, cube
-result = map(square, numbers) # map iterator takes function first, then an iterable
-print(result)
-# print(list(result)) 
-print(list(map(lambda x: x ** 2, numbers))) # square list with lambda
+# # Main 
+# -->> map () HOF
+
+# # print(with_list(numbers, cube)) # One generic cb function 'with_list' reused with square, cube
+# result = map(square, numbers) # map iterator takes function first, then an iterable
+# print(result)
+# # print(list(result)) 
+# print(list(map(lambda x: x ** 2, numbers))) # square list with lambda
 
 
 # numbers = [5, 7, 2, 3]
@@ -46,3 +48,19 @@ print(list(map(lambda x: x ** 2, numbers))) # square list with lambda
 
 
 
+#  -->> Filter HOF
+
+numbers = [5, 7, 2, 3]
+
+def square(n):
+    return n * n
+
+def cube(n):
+    return n ** 3
+
+# Main 
+
+print(list(map(lambda x: x ** 2, numbers))) # 
+
+evens = filter(lambda x: x % 2 == 0, numbers)
+print(list(evens)) # 2 is the only even, output: [2] because 2 != [2]
